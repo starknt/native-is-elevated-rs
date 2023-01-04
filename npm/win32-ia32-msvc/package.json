@@ -1,7 +1,7 @@
 {
   "name": "native-is-elevated-rs-win32-ia32-msvc",
   "packageManager": "pnpm@7.6.0",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-beta.1",
   "os": [
     "win32"
   ],

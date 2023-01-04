@@ -1,7 +1,7 @@
 {
   "name": "native-is-elevated-rs-darwin-x64",
   "packageManager": "pnpm@7.6.0",
-  "version": "0.0.0",
+  "version": "0.0.1-beta.0",
   "os": [
     "darwin"
   ],

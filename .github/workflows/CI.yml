@@ -61,14 +61,6 @@ jobs:
               set -e &&
               pnpm build --target aarch64-unknown-linux-gnu &&
               aarch64-unknown-linux-gnu-strip *.node
-          - host: ubuntu-latest
-            target: armv7-unknown-linux-gnueabihf
-            setup: |
-              sudo apt-get update
-              sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf -y
-            build: |
-              pnpm build --target=armv7-unknown-linux-gnueabihf
-              arm-linux-gnueabihf-strip *.node
     name: stable - ${{ matrix.settings.target }} - node@16
     runs-on: ${{ matrix.settings.host }}
     steps:
@@ -235,48 +227,6 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: ghcr.io/napi-rs/napi-rs/nodejs:aarch64-${{ matrix.node }}
-          options: '-v ${{ github.workspace }}:/build -w /build'
-          run: |
-            set -e
-            pnpm install --no-frozen-lockfile
-            pnpm test
-            ls -la
-  test-linux-arm-gnueabihf-binding:
-    name: Test bindings on armv7-unknown-linux-gnueabihf - node@${{ matrix.node }}
-    needs:
-      - build
-    strategy:
-      fail-fast: false
-      matrix:
-        node:
-          - '16'
-          - '18'
-    runs-on: ubuntu-latest
-    steps:
-      - run: docker run --rm --privileged multiarch/qemu-user-static:register --reset
-      - uses: actions/checkout@v3
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: bindings-armv7-unknown-linux-gnueabihf
-          path: .
-      - name: List packages
-        run: ls -R .
-        shell: bash
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-            node-version: ${{ matrix.node }}
-            check-latest: true
-      - uses: pnpm/action-setup@v2.2.2
-      - name: Install dependencies
-        run: |
-          pnpm config set supportedArchitectures.cpu "arm"
-          pnpm install --no-frozen-lockfile
-      - name: Setup and run tests
-        uses: addnab/docker-run-action@v3
-        with:
-          image: ghcr.io/napi-rs/napi-rs/nodejs:armhf-${{ matrix.node }}
           options: '-v ${{ github.workspace }}:/build -w /build'
           run: |
             set -e

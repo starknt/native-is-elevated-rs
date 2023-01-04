@@ -41,5 +41,5 @@ pub fn is_elevated() -> bool {
 #[cfg(not(windows))]
 #[napi]
 pub fn is_elevated() -> bool {
-  geteuid() == 0
+  geteuid().is_root()
 }

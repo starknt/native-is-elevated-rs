@@ -240,7 +240,6 @@ jobs:
       - test-macOS-windows-binding
       - test-linux-x64-gnu-binding
       - test-linux-aarch64-gnu-binding
-      - test-linux-arm-gnueabihf-binding
     steps:
       - uses: actions/checkout@v3
       - name: Setup node

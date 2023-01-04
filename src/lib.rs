@@ -1,14 +1,21 @@
 #![deny(clippy::all)]
 
+#[cfg(windows)]
 use std::ffi::c_void;
-
+#[cfg(windows)]
 use windows::Win32::Foundation::{HANDLE, CloseHandle};
+#[cfg(windows)]
 use windows::Win32::System::Threading::{OpenProcessToken, GetCurrentProcess};
+#[cfg(windows)]
 use windows::Win32::Security::{TOKEN_QUERY, TOKEN_ELEVATION, TokenElevation, GetTokenInformation};
+
+#[cfg(not(windows))]
+use nix::unistd::geteuid;
 
 #[macro_use]
 extern crate napi_derive;
 
+#[cfg(windows)]
 #[napi]
 pub fn is_elevated() -> bool {
   let mut is_elevated = false;
@@ -29,4 +36,10 @@ pub fn is_elevated() -> bool {
   }
 
   is_elevated
+}
+
+#[cfg(not(windows))]
+#[napi]
+pub fn is_elevated() -> bool {
+  geteuid() == 0
 }

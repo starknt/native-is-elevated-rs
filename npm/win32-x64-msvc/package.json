@@ -1,6 +1,6 @@
 {
   "name": "native-is-elevated-rs-win32-x64-msvc",
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1-beta.4",
   "os": [
     "win32"
   ],

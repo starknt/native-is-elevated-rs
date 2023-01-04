@@ -11,7 +11,6 @@
       "additional": [
         "aarch64-unknown-linux-gnu",
         "i686-pc-windows-msvc",
-        "armv7-unknown-linux-gnueabihf",
         "aarch64-apple-darwin",
         "aarch64-pc-windows-msvc"
       ]
@@ -49,7 +48,6 @@
     "native-is-elevated-rs-darwin-x64": "*",
     "native-is-elevated-rs-darwin-arm64": "*",
     "native-is-elevated-rs-linux-x64-gnu": "*",
-    "native-is-elevated-rs-linux-arm-gnueabihf": "*",
     "native-is-elevated-rs-linux-arm64-gnu": "*"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "name": "native-is-elevated-rs-darwin-arm64",
+  "packageManager": "pnpm@7.6.0",
+  "version": "0.4.0-beta.3",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "native-is-elevated-rs.darwin-arm64.node",
+  "files": [
+    "native-is-elevated-rs.darwin-arm64.node"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  }
+}

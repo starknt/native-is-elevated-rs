@@ -40,7 +40,12 @@
     "index.d.ts"
   ],
   "optionalDependencies": {
-    "@livemoe/tools-win32-x64-msvc": "*",
-    "@livemoe/tools-win32-arm64-msvc": "*"
+    "native-is-elevated-rs-win32-x64-msvc": "*",
+    "native-is-elevated-rs-win32-arm64-msvc": "*",
+    "native-is-elevated-rs-darwin-x64": "*",
+    "native-is-elevated-rs-darwin-arm64": "*",
+    "native-is-elevated-rs-linux-x64-gnu": "*",
+    "native-is-elevated-rs-linux-arm-gnueabihf": "*",
+    "native-is-elevated-rs-linux-arm64-gnu": "*"
   }
 }
